@@ -4,7 +4,7 @@ import { useEffect } from "react"
 
 function error({error,reset}) {
   useEffect(() =>{
-     console.error("An error was happened");
+     console.error("An error was happened :", error);
      
   },[error])  
   return (
