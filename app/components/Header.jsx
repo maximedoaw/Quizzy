@@ -39,9 +39,7 @@ const Header = () => {
         alt="Quizz logo"
         className="h-5 mr-4"
       />
-    {user ? (
-          <>
-              {path === '/' ? (<div className="flex w-100 items-center bg-gray-200 rounded-full justify-between">
+      {path === '/' ? (<div className="flex w-100 items-center bg-gray-200 rounded-full justify-between">
                 <input 
                     type="text" 
                     placeholder="Search quizz"
@@ -49,7 +47,11 @@ const Header = () => {
                 />
                 
                 <FaSearch className='mr-[10px]'/>
-              </div>) : ""}
+        </div>) : ""
+     }
+    {user ? (
+          <>
+ 
               <button className='p-2 bg-blue-500 text-[#fff] font-semibold rounded-lg
               w-[80px]'
               onClick={handleLogout}

@@ -1,35 +1,49 @@
-import Image from "next/image"
+import Image from "next/image";
 import { AiFillStar } from 'react-icons/ai';
 import { FaPlay } from 'react-icons/fa';
+import Moment from "react-moment";
 
-
-function Card() {
+function Card({ username, category, quizzName, timestamp, imageURL }) {
   return (
-    <div className="flex flex-col border w-[320px] h-[370px]  m-5 hover:shadow-lg rounded-lg
-    space-y-4 transition-shadow duration-200">
-      <Image 
-        src="/HxH.jpg" 
-        alt="image" 
-        width={350}
-        height={120}
-     />
-     <div className="flex items-center mt-2 justify-between">
-        <p className="font-semibold text-blue-500 truncate ml-1">Maxime Doaw</p>
-        <span className="bg-gray-200 p-2 rounded-full ml-auto font-bold">Manga</span>
-        <span className="ml-2 flex items-center font-semibold">3.1<AiFillStar style={{ color: 'gold', fontSize: '20px' }} /></span>
-     </div>
-     <div className="font-bold truncate text-center">
-        Quizz sur les personnage de HxH
-     </div>
-     <div className="flex justify-between">
-        <AiFillStar style={{ color: 'gray', fontSize: '30px' }} className="ml-1 hover:scale-125 transition-transform 
-              duration-200 case-out"/>
-        <FaPlay style={{  fontSize: '30px' }} className="bg-blue-500 text-white rounded-full p-2 hover:scale-125 transition-transform 
-              duration-200 mb-1 mr-1 case-out"/>
+    <div className="flex flex-col border shadow-md hover:shadow-xl rounded-lg overflow-hidden transition-shadow duration-300 m-5 w-[350px] h-[420px] bg-white">
+      {/* Image Section */}
+      <div className="relative h-[180px] w-full">
+        <Image 
+          src={imageURL}
+          alt="Quiz image" 
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
 
-     </div>
+      {/* Content Section */}
+      <div className="flex flex-col p-6 space-y-4 items-center">
+        {/* User and Category */}
+        <div className="flex items-center justify-between w-full">
+          <p className="font-medium text-blue-600 truncate">{username}</p>
+          <span className="text-xs font-semibold text-white bg-blue-500 px-3 py-1 rounded-full">
+            {category}
+          </span>
+        </div>
+
+        {/* Quiz Name */}
+        <h3 className="font-bold text-xl text-gray-800 truncate text-center">
+          {quizzName}
+        </h3>
+
+        {/* Timestamp */}
+        <div className="text-xs text-gray-500 text-center">
+          <Moment fromNow>{timestamp?.toDate()}</Moment>
+        </div>
+
+        {/* Footer Icons */}
+        <div className="flex justify-between items-center w-full mt-4">
+          <AiFillStar className="text-gray-300 hover:text-yellow-400 text-3xl cursor-pointer transition-transform transform hover:scale-110" />
+          <FaPlay className="text-white bg-blue-500 text-2xl rounded-full p-3 hover:bg-blue-600 cursor-pointer transition-transform transform hover:scale-110" />
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Card
+export default Card;
