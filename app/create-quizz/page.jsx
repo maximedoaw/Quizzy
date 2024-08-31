@@ -57,7 +57,7 @@ export default function QuizForm() {
       // Create the quiz document in Firestore with the image URL
       const quizz = await addDoc(collection(db, 'quizz'), {
         username: user ? user.displayName : 'unknown',
-        quizzName,
+        quizzName: quizzName || 'unknow',
         category: selectedCategory.value,
         imageUrl, // Save the image URL in Firestore
         timestamp: serverTimestamp(),

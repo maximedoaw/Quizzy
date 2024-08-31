@@ -33,20 +33,24 @@ export default function Home() {
     return () => { unsubscribe() , getQuizz() }
 },[])
   return (
-  <div>
-    <Categories />
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-5 p-6">
-      {listQuizz.map((quizzProps) =>(
-        <Card 
-        username={quizzProps.username}
-        category={quizzProps.category}
-        quizzName={quizzProps.quizzName}
-        timestamp={quizzProps.timestamp}
-        imageURL={quizzProps.imageURL}
-        />
-      ))}
-      {/* Ajoute d'autres <Card /> si nécessaire */}
-    </div>
+  <div className="flex flex-col">
+      <Categories />
+      <div className="flex flex-wrap  gap-6 p-4">
+        {listQuizz.map((quizzProps) => (
+          <Card 
+            key={quizzProps.id} // Assure-toi d'avoir une clé unique
+            username={quizzProps.username}
+            category={quizzProps.category}
+            quizzName={quizzProps.quizzName}
+            timestamp={quizzProps.timestamp}
+            imageURL={quizzProps.imageURL}
+            className="w-full sm:w-full md:w-1/3 lg:w-1/4" // Largeur ajustable en fonction de la taille de l'écran
+          />
+        ))}
+      </div>
+
+
+
 
     <div>
       {user ? (<Link href="/create-quizz">
