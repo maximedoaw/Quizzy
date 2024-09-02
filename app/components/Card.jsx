@@ -39,6 +39,7 @@ function Card({ username, category, quizzName, timestamp, imageURL }) {
       <AiFillStar className="text-gray-300 hover:text-yellow-400 text-3xl cursor-pointer transition-transform transform hover:scale-110" />
       <FaPlay className="text- bg-blue-500 text-2xl text-white rounded-full p-3 hover:bg-blue-600 cursor-pointer transition-transform transform hover:scale-110" />
     </div>
+    
   </div>
 </div>
 
