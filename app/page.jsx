@@ -35,7 +35,7 @@ export default function Home() {
   return (
   <div className="flex flex-col">
       <Categories />
-      <div className="flex flex-wrap  gap-6 p-4">
+      <div className="flex flex-wrap gap-6 p-4">
         {listQuizz.map((quizzProps) => (
           <Card 
             key={quizzProps.id} // Assure-toi d'avoir une clé unique
@@ -43,7 +43,7 @@ export default function Home() {
             category={quizzProps.category}
             quizzName={quizzProps.quizzName}
             timestamp={quizzProps.timestamp}
-            imageURL={quizzProps.imageURL}
+            imageURL={quizzProps.imageUrl}
             className="w-full sm:w-full md:w-1/3 lg:w-1/4" // Largeur ajustable en fonction de la taille de l'écran
           />
         ))}
